@@ -11,4 +11,4 @@ def home():
 
 @app.route('/prueba')
 def prueba():
-    return "<p>Soy una prueba</p>"
+    return ("A01746123")
