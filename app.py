@@ -26,7 +26,7 @@ def signup():
     return render_template('index.html')
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route('/login', methods=["GET", "POST"])
 def login():
     email = None
     if "email" in session:
@@ -48,5 +48,5 @@ def logout():
         return redirect(url_for("home"))
     else:
         return redirect(url_for("home"))
-        
+
 
