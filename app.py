@@ -25,6 +25,7 @@ def signup():
     password=request.form["password"]
     return render_template('index.html')
 
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     email = None
@@ -39,4 +40,10 @@ def login():
             password = request.form["password"]
             session["email"] = email
             return render_template("index.html", data=email)
+
+@app.route('/logout')
+def logout():
+    if "email" in session:
+        session.clear()
+        return redirect(url_for("home"))
 
