@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # FlASK
 #############################################################
@@ -9,6 +9,13 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/prueba')
-def prueba():
-    return ("A01746123")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if (request.method == "GET"):
+        return render_template("Login.html", data="email")
+    else:
+        email = None
+        email = request.form["email"]
+        password = request.form["password"]
+        return render_template("index.html", data=email)
