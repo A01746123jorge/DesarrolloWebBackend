@@ -5,7 +5,6 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 #############################################################
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if (request.method == "GET"):
@@ -15,3 +14,7 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
         return render_template("index.html", data=email)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
