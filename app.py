@@ -66,4 +66,18 @@ db = client.Escuela
 cuentas = db.alumno
 #############################################################
 
+@app.route("/insert")
+def insertUsers():
+    user = {
+        "matricula": "A01746123",
+        "nombre": "Jorge Mora",
+        "correo": "A01746123@tec.mx",
+        "contrasena": "1234",
+    }
+
+    try:
+        cuentas.insert_one(user)
+        return redirect(url_for("usuarios"))
+    except Exception as e:
+        return "<p>El servicio no esta disponible =>: %s %s" % type(e), e
 
