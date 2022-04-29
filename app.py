@@ -86,7 +86,7 @@ def usuarios():
     users = []
     for doc in cursor:
         users.append(doc)
-    return render_template("/Usuarios.html", data=users)
+    return render_template("/usuarios.html", data=users)
 
 
 @app.route("/insert", methods=["POST"])
